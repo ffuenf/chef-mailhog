@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 # Copyright (c) 2015 Sergey Storchay, All Rights Reserved.
+# Copyright (c) 2016 Achim Rosenhagen, All Rights Reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,4 +24,5 @@
 # SOFTWARE.
 #
 
-include_recipe "mailhog::#{node['mailhog']['install_method']}"
+# create and start service
+mailhog_service 'mailhog'

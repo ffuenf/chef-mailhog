@@ -1,12 +1,14 @@
 name             'mailhog'
-maintainer       'Sergey Storchay'
-maintainer_email 'r8@r8.com.ua'
+maintainer       'Achim Rosenhagen'
+maintainer_email 'a.rosenhagen@ffuenf.de'
 license          'MIT'
-description      'Installs/Configures mailhog'
-version          '0.1.0'
+description      'Installs/Configures mailhog and mhsendmail'
+version          '1.0.0'
+source_url       'https://github.com/ffuenf/chef-mailhog'
+issues_url       'https://github.com/ffuenf/chef-mailhog/issues'
 
-depends          'runit', '>= 0.0.0'
+provides         'service[mailhog]'
 
 %w(debian ubuntu centos redhat smartos).each do |os|
-  supports os, '>= 0.0.0'
+  supports os
 end
