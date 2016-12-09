@@ -9,12 +9,12 @@ Description=<%= @mailhog_name %>
 Environment=<%= "#{key}=#{value}" %>
 <% end %>
 <% end %>
-Type=forking
+Type=simple
 WorkingDirectory=/tmp
 User=root
 Group=root
 PIDFile=/run/<%= @mailhog_name %>.pid
-ExecStart=<%= @mailhog['binary']['path'] %>
+ExecStart=<%= @mailhog['binary']['path'] %> > /dev/null 2>&1 &
 ExecStop=/bin/kill -SIGTERM $MAINPID
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=process
